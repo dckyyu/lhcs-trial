@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: whitesmoke;
+      }
+
+      .valve-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .valve {
+        width: 100px;
+        height: 100px;
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 2px;
+        transform: rotate(45deg);
+        border: 2px solid black;
+        transition: transform 1s ease;
+      }
+      
+      .square {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .square:nth-child(1) {
+        background-color: white;
+      }
+      
+      .square:nth-child(2) {
+        background-color: red;
+      }
+      
+      .square:nth-child(3) {
+        background-color: red;
+      }
+      
+      .square:nth-child(4) {
+        background-color: white;
+      }
+
+      .cta{
+        text-decoration: none;
+        border-radius: 2px;
+        color: black;
+        outline: 2px solid black;
+        padding: 5px;
+        font-size: 20px;
+        font-weight: 400;
+      }
+
+      .cta:hover{
+        color: whitesmoke;
+        background-color: red;
+      }
+
+      .rotate{
+        transform: rotate(-45deg);
+      }
+
+      .cta:hover.active{
+        background-color: green;
+      }
+
+    </style>
+  </head>
+  <body>
+  <div class="valve-group">
+    <a href="#" class="cta" onclick="rotateValve()">open valve</a>
+      <div class="valve">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+      <div class="valve">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+      <div class="valve">
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+        <div class="square"></div>
+      </div>
+    </div>
+
+    <script>
+      function rotateValve() {
+      var button = document.querySelector('.cta');
+      button.classList.toggle('active');
+      var valves = document.querySelectorAll('.valve');
+      valves[0].classList.toggle('rotate');
+      changeColor(valves[0]);
+        if (document.querySelector('.cta').innerHTML === 'open valve') {
+          document.querySelector('.cta').innerHTML = 'close valve';
+          } else {
+        document.querySelector('.cta').innerHTML = 'open valve';
+          }
+      setTimeout(function() {
+      valves[1].classList.toggle('rotate');
+      changeColor(valves[1]);
+      valves[2].classList.toggle('rotate');
+      changeColor(valves[2]);
+        }, 3000);
+    }
+
+      function changeColor(valve) {
+        var squares = valve.querySelectorAll('.square');
+        if (squares[1].style.backgroundColor === '' || squares[1].style.backgroundColor === 'red') {
+        squares[1].style.backgroundColor = 'green';
+        squares[2].style.backgroundColor = 'green';
+      } else {
+        squares[1].style.backgroundColor = 'red';
+        squares[2].style.backgroundColor = 'red';
+        }
+      }
+
+    </script>
+  </body>
+</html>
