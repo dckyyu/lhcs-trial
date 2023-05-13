@@ -7,20 +7,40 @@ body{
     background-color: whitesmoke;
 }
 
+.left{
+    background-color: whitesmoke;
+    position: fixed;
+    width: 40%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.right{
+    background-color: whitesmoke;
+    position: fixed;
+    width: 60%;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+
 .valve-group{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 25%;
 }
       
 .valve {
-    width: 100px;
-    height: 100px;
-    margin-top: 50px;
+    width: 25px;
+    height: 25px;
+    margin-top: 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 2px;
+    gap: .5px;
     transform: rotate(45deg);
     border: 2px solid black;
     transition: transform 1s ease;
@@ -49,12 +69,13 @@ body{
 
 .cta{
     text-decoration: none;
-    border-radius: 2px;
+    border-radius: 1px;
     color: black;
-    outline: 2px solid black;
-    padding: 5px;
+    outline: 1px solid black;
+    padding: 2px;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 200;
+    margin-top: 30px;
 }
 
 .cta:hover{
@@ -62,10 +83,11 @@ body{
     background-color: red;
 }
 
+.cta:hover.active{
+    background-color: green;
+}
+
 .rotate{
     transform: rotate(-45deg);
 }
 
-.cta:hover.active{
-    background-color: green;
-}
